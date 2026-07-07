@@ -1332,6 +1332,10 @@ section {
     z-index: 1;
   }
 
+  .hero-buttons .btn-whatsapp {
+    display: none;
+  }
+
   .navbar {
     padding: 16px 20px;
   }
