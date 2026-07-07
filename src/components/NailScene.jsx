@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { Float, MeshDistortMaterial, Sparkles, Environment, PresentationControls, ContactShadows } from '@react-three/drei';
 import * as THREE from 'three';
@@ -231,10 +231,17 @@ function PolishDrop({ position, color, scale = 1 }) {
 /* ── Main Scene ─────────────────────────────────────────── */
 function Scene() {
   const { width } = useThree((state) => state.viewport);
-  const isMobile = width < 4.5;
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   const positionX = isMobile ? 0 : 1.5;
-  const positionY = isMobile ? -1.0 : 0;
-  const scale = isMobile ? 0.75 : 1.0;
+  const positionY = isMobile ? -0.1 : 0;
+  const scale = isMobile ? 0.8 : 1.0;
 
   return (
     <>

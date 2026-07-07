@@ -52,15 +52,6 @@ function Navbar() {
         </div>
 
         <div className="nav-cta">
-          <a
-            href="https://wa.me/918050305541"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-primary"
-            style={{ display: mobileOpen ? 'none' : 'inline-flex' }}
-          >
-            Book Now
-          </a>
 
           <button
             className={`mobile-toggle${mobileOpen ? ' active' : ''}`}
